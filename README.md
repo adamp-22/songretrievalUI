@@ -17,4 +17,8 @@ streamlit run main.py
 ```
 
 For deploying it publicly we used the destkop version of streamlit, and created the "app".
-It was connected to this GitHub repository. 
+It was connected to this GitHub repository.
+Here is the public link: 
+https://songretrievalui-mefldrefggdh8pkws5xfvg.streamlit.app
+
+
