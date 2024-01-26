@@ -243,29 +243,3 @@ class RecommenderSystem:
             id_vgg19_mmsr_songs = id_vgg19_mmsr_songs.sort_values('similarity_score', ascending=False)
             return id_vgg19_mmsr_songs
 
-        ### Early fusion: Merge data before you search
-        elif algorithm == 'early_fusion':
-            early_fusion_data = pd.concat([self.tfidf_data, self.word2vec_data], axis=1)
-            early_fusion_index = early_fusion_data.index
-            early_fusion_pca = PCA(n_components=300)
-            early_fusion_data = early_fusion_pca.fit_transform(early_fusion_data)
-            early_fusion_data = pd.DataFrame(early_fusion_data, index=early_fusion_index)
-
-            early_fusion_mmsr_songs = self.retrieve_similar_songs(song_id, early_fusion_data, self.cosine_similarity_between_songs, self.info_data, top_n).assign(method='early_fusion')
-            early_fusion_mmsr_songs = early_fusion_mmsr_songs.sort_values('similarity_score', ascending=False)
-            return early_fusion_mmsr_songs
-
-        ### Late fusion: Search individually first before you merge the results
-        elif algorithm == 'late_fusion':
-            tfidf_songs = self.retrieve_similar_songs(song_id, self.tfidf_data, self.cosine_similarity_between_songs, self.info_data, top_n).assign(method='tfidf')
-            tfidf_songs = tfidf_songs.sort_values('similarity_score', ascending=False)
-
-            word2vec_songs = self.retrieve_similar_songs(song_id, self.word2vec_data, self.cosine_similarity_between_songs, self.info_data, top_n).assign(method='word2vec')
-            word2vec_songs = word2vec_songs.sort_values('similarity_score', ascending=False)
-
-            late_fusion_scores = (tfidf_songs['similarity_score'] + word2vec_songs['similarity_score']) / 2
-            late_fusion_data = tfidf_songs.drop(columns=['similarity_score'])
-            late_fusion_mmsr_songs = pd.merge(late_fusion_data, late_fusion_scores, left_index=True, right_index=True)
-            late_fusion_mmsr_songs['method'] = 'late_fusion'
-            late_fusion_mmsr_songs = late_fusion_mmsr_songs.sort_values('similarity_score', ascending=False)
-            return late_fusion_mmsr_songs

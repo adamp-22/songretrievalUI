@@ -70,17 +70,8 @@ with col2:
                         ['random', 
                             'jaccard', 
                             'tf_idf', 
-                            'word2vec',
-                            'bert',
-                            'mfcc_bow',
-                            'id_ivec256_mmsr', 
-                            'id_blf_spectral_mmsr', 
-                            'id_musicnn_mmsr',
-                            'id_incp_mmsr',
-                            'id_resnet_mmsr',
-                            'id_vgg19_mmsr',
-                            'early_fusion',
-                            'late_fusion'])
+                            'word2vec', 
+                            'id_musicnn_mmsr'])
     
     with st.spinner('Looking for recommendations...'):
         similar_songs = rs.find_all_similar_songs(id_, 
