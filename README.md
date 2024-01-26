@@ -1,6 +1,6 @@
 # Recommendation System with UI
 
-This is a video recommender solution.
+This is the setup for the local UI of our content-based music retrieval system. 
 
 # Setup
 
@@ -15,3 +15,6 @@ Run the application.
 ```bash
 streamlit run main.py
 ```
+
+For deploying it publicly we used the destkop version of streamlit, and created the "app".
+It was connected to this GitHub repository. 
