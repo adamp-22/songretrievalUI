@@ -15,7 +15,7 @@ class RecommenderSystem:
         self.tfidf_data = pd.read_csv(f'{dataset_folder}/id_lyrics_tf-idf_mmsr.tsv', sep='\t', index_col='id')
 
         # BERT data
-        self.bert_data = pd.read_csv(f'{dataset_folder}/id_lyrics_bert_mmsr.tsv', sep='\t', index_col='id')
+        #self.bert_data = pd.read_csv(f'{dataset_folder}/id_lyrics_bert_mmsr.tsv', sep='\t', index_col='id')
 
         # Word2Vec data
         self.word2vec_data = pd.read_csv(f'{dataset_folder}/id_lyrics_word2vec_mmsr.tsv', sep='\t', index_col='id')
@@ -24,41 +24,41 @@ class RecommenderSystem:
         self.info_data = pd.read_csv(f'{dataset_folder}/id_information_mmsr.tsv', sep='\t')
 
         # MFCC Bow data
-        data_mfcc_bow = pd.read_csv(f'{dataset_folder}/id_mfcc_bow_mmsr.tsv', sep='\t')
-        self.data_mfcc_bow = data_mfcc_bow.set_index('id')
+        #data_mfcc_bow = pd.read_csv(f'{dataset_folder}/id_mfcc_bow_mmsr.tsv', sep='\t')
+        #self.data_mfcc_bow = data_mfcc_bow.set_index('id')
 
         # ivec256
-        self.id_ivec256_mmsr = pd.read_csv(f'{dataset_folder}/id_ivec256_mmsr.tsv', sep='\t')
-        self.id_ivec256_mmsr.set_index(self.id_ivec256_mmsr.columns[0], inplace=True)
+        #self.id_ivec256_mmsr = pd.read_csv(f'{dataset_folder}/id_ivec256_mmsr.tsv', sep='\t')
+        #self.id_ivec256_mmsr.set_index(self.id_ivec256_mmsr.columns[0], inplace=True)
 
         # ivec512
-        self.id_ivec512_mmsr = pd.read_csv(f'{dataset_folder}/id_ivec512_mmsr.tsv', sep='\t')
+        #self.id_ivec512_mmsr = pd.read_csv(f'{dataset_folder}/id_ivec512_mmsr.tsv', sep='\t')
 
         # BLF correlation
-        self.id_blf_correlation_mmsr = pd.read_csv(f'{dataset_folder}/id_blf_correlation_mmsr.tsv', sep='\t')
+        #self.id_blf_correlation_mmsr = pd.read_csv(f'{dataset_folder}/id_blf_correlation_mmsr.tsv', sep='\t')
 
         # BLF spectral
-        self.id_blf_spectral_mmsr = pd.read_csv(f'{dataset_folder}/id_blf_spectral_mmsr.tsv', sep='\t')
-        self.id_blf_spectral_mmsr.set_index(self.id_blf_spectral_mmsr.columns[0], inplace=True)
+        #self.id_blf_spectral_mmsr = pd.read_csv(f'{dataset_folder}/id_blf_spectral_mmsr.tsv', sep='\t')
+        #self.id_blf_spectral_mmsr.set_index(self.id_blf_spectral_mmsr.columns[0], inplace=True)
 
         # MusicNN
         self.id_musicnn_mmsr = pd.read_csv(f'{dataset_folder}/id_musicnn_mmsr.tsv', sep='\t')
         self.id_musicnn_mmsr.set_index(self.id_musicnn_mmsr.columns[0], inplace=True)
 
         # INCP
-        id_incp_mmsr = pd.read_csv(f'{dataset_folder}/id_incp_mmsr.tsv', sep='\t')
-        self.id_incp_mmsr = id_incp_mmsr.set_index('id')
+        #id_incp_mmsr = pd.read_csv(f'{dataset_folder}/id_incp_mmsr.tsv', sep='\t')
+        #self.id_incp_mmsr = id_incp_mmsr.set_index('id')
 
         # ResNet
-        id_resnet_mmsr = pd.read_csv(f'{dataset_folder}/id_resnet_mmsr.tsv', sep='\t')
-        self.id_resnet_mmsr = id_resnet_mmsr.set_index('id')
+        #id_resnet_mmsr = pd.read_csv(f'{dataset_folder}/id_resnet_mmsr.tsv', sep='\t')
+        #self.id_resnet_mmsr = id_resnet_mmsr.set_index('id')
 
         # URL
         self.id_url_mmsr = pd.read_csv(f'{dataset_folder}/id_url_mmsr.tsv', sep='\t')
 
         # VGG19
-        id_vgg19_mmsr = pd.read_csv(f'{dataset_folder}/id_vgg19_mmsr.tsv', sep='\t')
-        self.id_vgg19_mmsr = id_vgg19_mmsr.set_index('id')
+        #id_vgg19_mmsr = pd.read_csv(f'{dataset_folder}/id_vgg19_mmsr.tsv', sep='\t')
+        #self.id_vgg19_mmsr = id_vgg19_mmsr.set_index('id')
 
         # ID genres
         self.data_id_genres = pd.read_csv(f'{dataset_folder}/id_genres_mmsr.tsv', sep='\t')
